@@ -1,0 +1,43 @@
+name: GH Test
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [labeled, opened, synchronize, reopened]
+  workflow_dispatch:
+
+jobs:
+  test:
+    if: ${{ github.event.action != 'labeled' || github.event.label.name == 'gh:force-run' }}
+    strategy:
+      matrix:
+        platform: [ubuntu-latest]
+        php: [ "7.0", "7.1" ]
+    name: PHP ${{ matrix.php }} Unit Test (${{ matrix.platform }})
+    runs-on: ${{ matrix.platform }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup PHP
+      uses: shivammathur/setup-php@verbose
+      with:
+        php-version: ${{ matrix.php }}
+    - name: Run Unit Test Suite
+      run: |
+        php test.php
+  test2:
+    if: ${{ github.event.action != 'labeled' || github.event.label.name == 'gh:force-run' }}
+    strategy:
+      matrix:
+        platform: [ubuntu-latest]
+        php: [ "7.3", "7.4" ]
+    name: PHP ${{ matrix.php }} Unit Test2 (${{ matrix.platform }})
+    runs-on: ${{ matrix.platform }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup PHP
+      uses: shivammathur/setup-php@verbose
+      with:
+        php-version: ${{ matrix.php }}
+    - name: Run Unit Test Suite
+      run: |
+        php test.php
