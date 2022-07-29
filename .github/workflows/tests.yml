@@ -14,5 +14,7 @@ jobs:
       with:
         extensions: grpc
     - name: Run composer update
+      run: composer update
+    - name: Run phpunit
       run: |
-        composer update
+        ./vendor/bin/phpunit tests/OperationTest.php
