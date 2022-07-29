@@ -5,7 +5,11 @@ jobs:
     name: Test GH action
     runs-on: ubuntu-latest
     steps:
-    - name: Step 1
+    - name: Setup PHP with grpc
+      uses: shivammathur/setup-php@v2
+      with:
+        extensions: grpc
+    - name: Output PHP version and grpc status
       run: |
-        echo "hey"
-        echo "\n Line 2"
+        php -v
+        php -m | grep grpc
