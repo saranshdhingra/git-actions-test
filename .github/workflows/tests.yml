@@ -13,6 +13,6 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         extensions: grpc
-    - name: Output list of files
+    - name: Run composer update
       run: |
-        ls
+        composer update
