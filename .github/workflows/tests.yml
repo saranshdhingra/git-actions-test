@@ -17,4 +17,4 @@ jobs:
       run: composer update
     - name: Run phpunit
       run: |
-        ./vendor/bin/phpunit tests/OperationTest.php
+        ./vendor/bin/phpunit tests/OperationsTest.php
