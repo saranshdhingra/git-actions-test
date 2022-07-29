@@ -18,6 +18,12 @@ class OperationsTest extends TestCase{
         $this->assertEquals($result, $val * 2);
     }
 
+    public function testMultiplyFloat() {
+        $val = 1.2;
+        $result = $this->operator->multiply($val);
+        $this->assertEquals($result, $val * 2);
+    }
+
     public function testMultiplyFails() {
         $val = "abc";
 
