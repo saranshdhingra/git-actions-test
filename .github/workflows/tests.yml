@@ -5,11 +5,12 @@ jobs:
     name: Test GH action
     runs-on: ubuntu-latest
     steps:
+    - name: Checking out my beautiful code
+      uses: actions/checkout@v3
     - name: Setup PHP with grpc
       uses: shivammathur/setup-php@v2
       with:
         extensions: grpc
-    - name: Output PHP version and grpc status
+    - name: Output list of files
       run: |
-        php -v
-        php -m | grep grpc
+        ls
