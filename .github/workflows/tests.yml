@@ -4,4 +4,8 @@ jobs:
   test:
     name: Test GH action
     runs-on: ubuntu-latest
-    run: echo "hey"
+    steps:
+    - name: Step 1
+      run: |
+        echo "hey"
+        echo "\n Line 2"
