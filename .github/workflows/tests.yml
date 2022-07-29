@@ -1,5 +1,7 @@
 name: Lex Test
-on: push
+on: 
+  push:
+    branches: [main]
 jobs:
   test:
     name: Test GH action
